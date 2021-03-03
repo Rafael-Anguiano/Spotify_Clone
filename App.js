@@ -14,8 +14,8 @@ import {
   View,
   Text,
   StatusBar,
+  Button
 } from 'react-native';
-
 import {
   Header,
   LearnMoreLinks,
@@ -24,14 +24,85 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from './src/screens/HomeScreen';
+import { createStackNavigator } from '@react-navigation/stack';
+import {Icon} from 'native-base';
+import HomeScreen from './src/screens/Home';
+import SearchScreen from './src/screens/Search';
+import MusicScreen from './src/screens/Music';
+import PodcastsScreen from './src/screens/Podcasts';
 
+const LibraryStack = createStackNavigator();
+
+function LibraryStackScreen() {
+  return (
+    <LibraryStack.Navigator>
+      <LibraryStack.Screen name="Music" component={MusicScreen} options={{
+          headerTitle: 'Music',
+          headerRight: () => (
+            <Button
+              onPress={() => alert('This is a button!')}
+              title="Podcasts"
+              color="gray"
+            />
+          ),
+        }} />
+      <LibraryStack.Screen name="Podcasts" component={PodcastsScreen} />
+    </LibraryStack.Navigator>
+  );
+}
+
+const Tab = createBottomTabNavigator();
 
 export default class App extends React.Component {
   render() {
-    return( <HomeScreen />);
+    return (
+      <NavigationContainer>
+          <Tab.Navigator
+            tabBarOptions={{
+              activeTintColor: 'white',
+              inactiveTintColor: 'gray',
+              activeBackgroundColor:'#333333',
+              inactiveBackgroundColor:'#333333'
+            }}
+          >
+          
+            <Tab.Screen 
+              name="Home" 
+              component={HomeScreen} 
+              options={{
+                tabBarLabel:'Home',
+                tabBarIcon: ({}) => (
+                  <Icon name='home-outline' style={{color:'gray'}}/>
+                )
+              }}
+            />
+
+            <Tab.Screen 
+              name="Search" 
+              component={SearchScreen} 
+              options={{
+                tabBarLabel:'Search',
+                tabBarIcon: ({}) => (
+                  <Icon name='search-outline' style={{color:'gray'}}/>
+                )
+              }}
+            />
+
+            <Tab.Screen 
+              name="Library" 
+              component={LibraryStackScreen} 
+              options={{
+                tabBarLabel:'Your Library',
+                tabBarIcon: ({}) => (
+                  <Icon name='library' style={{color:'gray'}}/>
+                )
+              }}
+
+            />
+          </Tab.Navigator>
+        </NavigationContainer>
+    );
   }
 }
 
