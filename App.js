@@ -13,11 +13,9 @@ import {
   ScrollView,
   View,
   Text,
-  StatusBar,
-  Button
+  StatusBar
 } from 'react-native';
 import {
-  Header,
   LearnMoreLinks,
   Colors,
   DebugInstructions,
@@ -26,7 +24,7 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import {Icon} from 'native-base';
+import { Icon, Tabs, Button, Tab, Header, Content, Container} from 'native-base';
 import HomeScreen from './src/screens/Home';
 import SearchScreen from './src/screens/Search';
 import MusicScreen from './src/screens/Music';
@@ -37,28 +35,19 @@ const LibraryStack = createStackNavigator();
 function LibraryStackScreen() {
   return (
     <LibraryStack.Navigator>
-      <LibraryStack.Screen name="Music" component={MusicScreen} options={{
-          headerTitle: 'Music',
-          headerRight: () => (
-            <Button
-              onPress={() => alert('This is a button!')}
-              title="Podcasts"
-              color="gray"
-            />
-          ),
-        }} />
+      <LibraryStack.Screen name="Music" component={MusicScreen}/>
       <LibraryStack.Screen name="Podcasts" component={PodcastsScreen} />
     </LibraryStack.Navigator>
   );
 }
 
-const Tab = createBottomTabNavigator();
+const TabNav = createBottomTabNavigator();
 
 export default class App extends React.Component {
   render() {
     return (
-      <NavigationContainer>
-          <Tab.Navigator
+      <NavigationContainer>    
+          <TabNav.Navigator
             tabBarOptions={{
               activeTintColor: 'white',
               inactiveTintColor: 'gray',
@@ -66,42 +55,41 @@ export default class App extends React.Component {
               inactiveBackgroundColor:'#333333'
             }}
           >
-          
-            <Tab.Screen 
+            <TabNav.Screen 
               name="Home" 
               component={HomeScreen} 
               options={{
                 tabBarLabel:'Home',
-                tabBarIcon: ({}) => (
-                  <Icon name='home-outline' style={{color:'gray'}}/>
+                tabBarIcon: ({focused}) => (
+                  <Icon name={focused ?'home' : 'home-outline'} style={{color: focused ? 'white' : 'gray'}}/>
                 )
               }}
             />
-
-            <Tab.Screen 
+          
+            <TabNav.Screen 
               name="Search" 
               component={SearchScreen} 
               options={{
                 tabBarLabel:'Search',
-                tabBarIcon: ({}) => (
-                  <Icon name='search-outline' style={{color:'gray'}}/>
+                tabBarIcon: ({focused}) => (
+                  <Icon name={focused ?'search' : 'search-outline'} style={{color: focused ? 'white' : 'gray'}}/>
                 )
               }}
             />
 
-            <Tab.Screen 
+            <TabNav.Screen 
               name="Library" 
               component={LibraryStackScreen} 
               options={{
                 tabBarLabel:'Your Library',
-                tabBarIcon: ({}) => (
-                  <Icon name='library' style={{color:'gray'}}/>
+                tabBarIcon: ({focused}) => (
+                  <Icon name={focused ?'library' : 'library-outline'} style={{color: focused ? 'white' : 'gray'}}/>
                 )
               }}
-
             />
-          </Tab.Navigator>
+          </TabNav.Navigator>
         </NavigationContainer>
+
     );
   }
 }
@@ -144,6 +132,31 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
 });
+
+/*
+<Tabs>
+            <Tab heading="Tab1">
+            </Tab>
+            <Tab heading="Tab2">
+            </Tab>
+          </Tabs>
+*/
+
+/*
+options={{
+                    tabBarIcon: ({focused}) => (
+                      <Image 
+                        source={icons.user}
+                        resizeMode="contain"
+                        style={{
+                          width: 25,
+                          height: 25,
+                          tintColor: focused ? COLORS.primary : COLORS.secondary
+                        }}
+                      />
+                    ),
+                  }}
+*/
 
 /*
 <>
