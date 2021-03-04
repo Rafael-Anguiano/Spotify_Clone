@@ -1,5 +1,5 @@
 import React from 'react'
-import { ImageBackground, TouchableOpacity, View } from 'react-native'
+import { ImageBackground, ScrollView, TouchableOpacity, View } from 'react-native'
 import { 
     Card, 
     CardItem, 
@@ -58,9 +58,12 @@ export default class HomeScreen extends React.Component {
         return (
         
         <View style={{flex: 1, backgroundColor:'#151515'}}>
+            <ScrollView>
+
+            </ScrollView>
             <Card transparent>
                 <TouchableOpacity onPress={()=>{
-                    navigation.navigate('Search')
+                    //navigation.navigate('Search')
                 }}>
                     <CardItem style={{backgroundColor:'#333333'}}>
                         <Left>

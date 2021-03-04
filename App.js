@@ -35,7 +35,7 @@ const HomeStack = createStackNavigator();
 function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
-      <HomeStack.Screen name="Home" component={HomeScreen} options={{ title: 'Home Sc', /*headerShown:false */}}/>
+      <HomeStack.Screen name="Home" component={HomeScreen} options={{ title: 'Home Sc', headerShown:false }}/>
     </HomeStack.Navigator>
   );
 }
@@ -45,7 +45,7 @@ const SearchStack = createStackNavigator();
 function SearchStackScreen() {
   return (
     <SearchStack.Navigator>
-      <SearchStack.Screen name="Search" component={SearchScreen} options={{ title: 'Search Sc', headerShown:false }}/>
+      <SearchStack.Screen name="Search" component={SearchScreen} options={{ title: 'Search Sc', headerShown: false }}/>
     </SearchStack.Navigator>
   );
 }
@@ -55,8 +55,8 @@ const LibraryStack = createStackNavigator();
 function LibraryStackScreen() {
   return (
     <LibraryStack.Navigator>
-      <LibraryStack.Screen name="Music" component={MusicScreen} options={{ title: 'Music', /*headerShown:false */}}/>
-      <LibraryStack.Screen name="Podcasts" component={PodcastsScreen} options={{ title: 'Overview', /*headerShown:false */}}/>
+      <LibraryStack.Screen name="Music" component={MusicScreen} options={{ title: 'Music', headerShown:false }}/>
+      <LibraryStack.Screen name="Podcasts" component={PodcastsScreen} options={{ title: 'Overview', headerShown:false }}/>
     </LibraryStack.Navigator>
   );
 }
