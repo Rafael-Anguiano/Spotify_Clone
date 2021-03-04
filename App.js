@@ -30,13 +30,33 @@ import SearchScreen from './src/screens/Search';
 import MusicScreen from './src/screens/Music';
 import PodcastsScreen from './src/screens/Podcasts';
 
+const HomeStack = createStackNavigator();
+
+function HomeStackScreen() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen name="Home" component={HomeScreen} options={{ title: 'Home Sc' }}/>
+    </HomeStack.Navigator>
+  );
+}
+
+const SearchStack = createStackNavigator();
+
+function SearchStackScreen() {
+  return (
+    <SearchStack.Navigator>
+      <SearchStack.Screen name="Search" component={SearchScreen} options={{ title: 'Search Sc' }}/>
+    </SearchStack.Navigator>
+  );
+}
+
 const LibraryStack = createStackNavigator();
 
 function LibraryStackScreen() {
   return (
     <LibraryStack.Navigator>
-      <LibraryStack.Screen name="Music" component={MusicScreen}/>
-      <LibraryStack.Screen name="Podcasts" component={PodcastsScreen} />
+      <LibraryStack.Screen name="Music" component={MusicScreen} options={{ title: 'Music' }}/>
+      <LibraryStack.Screen name="Podcasts" component={PodcastsScreen} options={{ title: 'Overview' }}/>
     </LibraryStack.Navigator>
   );
 }
@@ -56,8 +76,8 @@ export default class App extends React.Component {
             }}
           >
             <TabNav.Screen 
-              name="Home" 
-              component={HomeScreen} 
+              name="HomeTab" 
+              component={HomeStackScreen} 
               options={{
                 tabBarLabel:'Home',
                 tabBarIcon: ({focused}) => (
@@ -67,8 +87,8 @@ export default class App extends React.Component {
             />
           
             <TabNav.Screen 
-              name="Search" 
-              component={SearchScreen} 
+              name="SearchTab" 
+              component={SearchStackScreen} 
               options={{
                 tabBarLabel:'Search',
                 tabBarIcon: ({focused}) => (
@@ -78,7 +98,7 @@ export default class App extends React.Component {
             />
 
             <TabNav.Screen 
-              name="Library" 
+              name="LibraryTab" 
               component={LibraryStackScreen} 
               options={{
                 tabBarLabel:'Your Library',
