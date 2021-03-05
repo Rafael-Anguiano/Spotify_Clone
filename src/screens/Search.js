@@ -61,7 +61,9 @@ export default class SearchScreen extends React.Component {
             </ScrollView>
             
             <ScrollView>
-                
+                <Button>
+                    <Text>Click Me!</Text>
+                </Button>
             </ScrollView>
             
             <Card transparent>
