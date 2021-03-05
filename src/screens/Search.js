@@ -63,6 +63,7 @@ export default class SearchScreen extends React.Component {
             <ScrollView>
                 
             </ScrollView>
+            
             <Card transparent>
                 <TouchableOpacity onPress={()=>{
                     //navigation.navigate('Search')
