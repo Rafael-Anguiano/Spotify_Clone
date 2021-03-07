@@ -21,10 +21,10 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, NavigationHelpersContext } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Icon, Tabs, Button, Tab, Header, Content, Container} from 'native-base';
+import { Icon, Tabs, Tab, Button, Header, Content, Container} from 'native-base';
 import HomeScreen from './src/screens/Home';
 import SearchScreen from './src/screens/Search';
 import MusicScreen from './src/screens/Music';
@@ -55,8 +55,11 @@ const LibraryStack = createStackNavigator();
 function LibraryStackScreen() {
   return (
     <LibraryStack.Navigator>
-      <LibraryStack.Screen name="Music" component={MusicScreen} options={{ title: 'Music', headerShown:false }}/>
-      <LibraryStack.Screen name="Podcasts" component={PodcastsScreen} options={{ title: 'Overview', headerShown:false }}/>
+      <LibraryStack.Screen 
+        name="Music" 
+        component={MusicScreen} 
+        options={{ title: 'Music', headerShown:false }}/>
+      <LibraryStack.Screen name="Podcasts" component={PodcastsScreen} options={{ title: 'Podcasts', headerShown:false }}/>
     </LibraryStack.Navigator>
   );
 }
@@ -152,6 +155,35 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
 });
+
+/*
+options={{ 
+          headerShown:true , 
+          title: '',
+          headerStyle: {
+            backgroundColor: '#333333',
+          },
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }, 
+          headerLeft:() => (
+            <Button
+              onPress={() => {}}
+              transparent
+              title="Music"
+              color="#333333"
+              style={{fontWeight:'bold'}}
+            />
+          ),
+          headerRight: () => (
+            <Button
+              onPress={() => alert('This is a button!')}
+              title="Podcasts"
+              color="#333333"
+            />
+          ),  }}
+*/
+
 
 /*
 <Tabs>

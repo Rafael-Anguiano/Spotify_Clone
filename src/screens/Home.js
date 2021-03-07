@@ -11,6 +11,7 @@ import {
     Body, 
     Right,
     Toast } from 'native-base';
+import axios from 'axios'
 
 
 export default class HomeScreen extends React.Component {  
@@ -29,15 +30,30 @@ export default class HomeScreen extends React.Component {
         };
     }
 
+    async componentDidMount(){
+        axios.get('https://api.spotify.com/v1/tracks')
+        .then(function (response) {
+            // handle success
+            console.log(response);
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .then(function () {
+            // always executed
+        });
+    }
+
     likedSong(){
         if(this.state.liked === false){
-            this.setState({heart: 'heart', liked: true, heartcolor:'#1DB954'})
+            this.setState({ heart: 'heart', liked: true, heartcolor:'#1DB954' })
             //Toast.show({
             //    text: "Song added to Liked Songs",
             //})
         }
         if(this.state.liked === true){
-            this.setState({heart: 'heart-outline', liked: false, heartcolor:'white'})
+            this.setState({ heart: 'heart-outline', liked: false, heartcolor:'white' })
             //Toast.show({
             //    text: "Song removed from Liked Songs",
             //})

@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, ScrollView, TouchableOpacity } from 'react-native'
-import { Item, Icon, Button, Text, Card, CardItem, Left, Right, Thumbnail, Body} from 'native-base';
+import { Item, Icon, Button, Text, Card, CardItem, Left, Right, Thumbnail, Body, Header} from 'native-base';
 
 export default class MusicScreen extends React.Component {  
     
@@ -47,33 +47,30 @@ export default class MusicScreen extends React.Component {
         const { navigation } = this.props
         return (
         <View style={{ flex: 1, backgroundColor:'#151515' }}>
-            <Button
-                title="Podcasts"
-            />
             <ScrollView>
                 
-                </ScrollView>
-                <Card transparent>
-                    <TouchableOpacity onPress={()=>{
-                        //navigation.navigate('Search')
-                    }}>
-                        <CardItem style={{backgroundColor:'#333333'}}>
-                            <Left>
-                                <Thumbnail square source={{uri: 'https://www.spirit-of-metal.com/les%20goupes/T/The%20Pretty%20Reckless/Kill%20Me/Kill%20Me_2513.jpg'}} />
-                            </Left>
-                            <Body>
-                                <Text style={{color:'white'}}>Track</Text>
-                                <Text note style={{color:'#9F9F9F'}}>Autor</Text>
-                            </Body>
-                            <TouchableOpacity onPress={() => {this.likedSong()}}>
-                                <Icon active name={this.state.heart} style={{color: this.state.heartcolor}} />
-                            </TouchableOpacity> 
-                            <TouchableOpacity onPress={() => {this.pauseSong()}}>
-                                <Icon active name={this.state.pausePlay} style={{color:'white'}} />
-                            </TouchableOpacity> 
-                        </CardItem>
-                    </TouchableOpacity>
-                </Card>  
+            </ScrollView>
+            <Card transparent>
+                <TouchableOpacity onPress={()=>{
+                    //navigation.navigate('Search')
+                }}>
+                    <CardItem style={{backgroundColor:'#333333'}}>
+                        <Left>
+                            <Thumbnail square source={{uri: 'https://www.spirit-of-metal.com/les%20goupes/T/The%20Pretty%20Reckless/Kill%20Me/Kill%20Me_2513.jpg'}} />
+                        </Left>
+                        <Body>
+                            <Text style={{color:'white'}}>Track</Text>
+                            <Text note style={{color:'#9F9F9F'}}>Autor</Text>
+                        </Body>
+                        <TouchableOpacity onPress={() => {this.likedSong()}}>
+                            <Icon active name={this.state.heart} style={{color: this.state.heartcolor}} />
+                        </TouchableOpacity> 
+                        <TouchableOpacity onPress={() => {this.pauseSong()}}>
+                            <Icon active name={this.state.pausePlay} style={{color:'white'}} />
+                        </TouchableOpacity> 
+                    </CardItem>
+                </TouchableOpacity>
+            </Card>  
         </View>
         )
     }
