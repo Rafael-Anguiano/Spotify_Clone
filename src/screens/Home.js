@@ -31,7 +31,7 @@ export default class HomeScreen extends React.Component {
     }
 
     async componentDidMount(){
-        axios.get('https://api.spotify.com/v1/tracks')
+        axios.get('https://accounts.spotify.com/authorize')
         .then(function (response) {
             // handle success
             console.log(response);
@@ -44,6 +44,7 @@ export default class HomeScreen extends React.Component {
             // always executed
         });
     }
+
 
     likedSong(){
         if(this.state.liked === false){
@@ -89,10 +90,10 @@ export default class HomeScreen extends React.Component {
                             <Text style={{color:'white'}}>Track</Text>
                             <Text note style={{color:'#9F9F9F'}}>Autor</Text>
                         </Body>
-                        <TouchableOpacity onPress={() => {this.likedSong()}}>
+                        <TouchableOpacity onPress={() => { this.likedSong() }}>
                             <Icon active name={this.state.heart} style={{color: this.state.heartcolor}} />
                         </TouchableOpacity> 
-                        <TouchableOpacity onPress={() => {this.pauseSong()}}>
+                        <TouchableOpacity onPress={() => { this.pauseSong() }}>
                             <Icon active name={this.state.pausePlay} style={{color:'white'}} />
                         </TouchableOpacity> 
                     </CardItem>
