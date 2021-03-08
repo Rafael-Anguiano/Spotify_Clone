@@ -1,10 +1,10 @@
 # Spotify Clone
 
 ## Description
-Mobile application to share my CV in a different way, developed in JavaScript with React Native.
- - Design screens that show personal information and experience, projects, and languages.
- - implemented functionalities to contact me from the application using different services.
- - I generated an APK for Android and test simulations for iOS.
+This aplication it's a try to do my own version of Spotify using the [Spotify Web API](https://developer.spotify.com/documentation/web-api/) to get the information.
+ - Made in React, React Native and Javascript
+ - Based directly in the Spotify Android App.
+ - Learned to use APIs to change front views.
 
 ---
 
@@ -37,16 +37,17 @@ Once you have installed the dependencies, you are ready to start simulating and 
 
 ---
 ## APK and Video of the App
+>   This app still in development
 
 ---
 ## Using the App
 1. Still not working at all.
 
-> This app still in development
+>   This app still in development
 ---
 
 ## Notes:
- - Any note for now
+ - There's no notes for now.
 
 ---
 
