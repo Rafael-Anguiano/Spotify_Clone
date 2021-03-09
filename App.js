@@ -25,16 +25,18 @@ import { NavigationContainer, NavigationHelpersContext } from '@react-navigation
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Icon, Tabs, Tab, Button, Header, Content, Container} from 'native-base';
-import HomeScreen from './src/screens/Home';
+import HomeScreen from './src/screens/Home/Home';
 import SearchScreen from './src/screens/Search';
 import MusicScreen from './src/screens/Music';
 import PodcastsScreen from './src/screens/Podcasts';
+import LoginScreen from './src/screens/Login/loginScreen';
 
 const HomeStack = createStackNavigator();
 
 function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
+      <HomeStack.Screen name='Login' component={LoginScreen} options={{ title: 'Login', headerShown:true }}/>
       <HomeStack.Screen name="Home" component={HomeScreen} options={{ title: 'Home Sc', headerShown:false }}/>
     </HomeStack.Navigator>
   );
