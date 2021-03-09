@@ -1,5 +1,7 @@
 # Spotify Clone
 
+> THIS PROJECT IS HAVING A RECCESS IN HIS DEVELOPMENT PATH. It will be continued soon.
+
 ## Description
 This aplication it's a try to do my own version of Spotify using the [Spotify Web API](https://developer.spotify.com/documentation/web-api/) to get the information.
  - Made in React, React Native and Javascript
